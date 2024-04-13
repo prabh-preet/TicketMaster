@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TicketMaster</string>
+    <string name="menu_name">TicketMaster</string>
+    <string name="search_button">Search</string>
+</resources>
