@@ -18,6 +18,8 @@ import java.util.List;
 
 /** This is the  class which is using recycler view from the main class
  * which is processing the list of events by getting it and adding it to the fragment
+ * @author Prabhpreet Kaur
+ * @version 1.0
  */
 public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.EventViewHolder> {
 

@@ -2,6 +2,8 @@ package com.example.ticketmaster;
 
 /** This is the class for ticketmaster event details which we are taking from the web server
  * and storing it for displaying them later on
+ * @author Prabhpreet Kaur
+ * @version 1.0
  */
 public class Ticket {
     /**

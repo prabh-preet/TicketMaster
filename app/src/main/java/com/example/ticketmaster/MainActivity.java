@@ -40,6 +40,8 @@ import java.util.concurrent.Executors;
  * This is my main class for the whole application from which all the content is appearing
  * and everything like the display details comes here. I made some methods for displaying the details
  * using JSON and some other in-built methods
+ * @author Prabhpreet Kaur
+ * @version 1.0
  */
 public class MainActivity extends AppCompatActivity {
 

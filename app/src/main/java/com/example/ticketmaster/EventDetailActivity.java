@@ -15,6 +15,8 @@ import com.squareup.picasso.Picasso;
 /**
  * This is the class generating the details of an event on the page
  * by getting it from the first page
+ * @author Prabhpreet Kaur
+ * @version 1.0
  */
 public class EventDetailActivity extends AppCompatActivity {
 
