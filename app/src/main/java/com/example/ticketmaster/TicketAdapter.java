@@ -55,7 +55,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.EventViewH
             super(itemView);
             textViewEventName = itemView.findViewById(R.id.name_text_view);
             textViewStartDate = itemView.findViewById(R.id.start_date_text_view);
-            textViewPriceRange = itemView.findViewById(R.id.price_range_text_view);
+            //textViewPriceRange = itemView.findViewById(R.id.price_range_text_view);
             imageViewEvent = itemView.findViewById(R.id.event_image_view);
 
             // Set OnClickListener for the entire item view
@@ -81,7 +81,7 @@ public class TicketAdapter extends RecyclerView.Adapter<TicketAdapter.EventViewH
         public void bind(Ticket ticket) {
             textViewEventName.setText(ticket.getName());
             textViewStartDate.setText("Start Date: " + ticket.getStartDate());
-            textViewPriceRange.setText("Price Range: " + ticket.getPriceRange());
+            //textViewPriceRange.setText("Price Range: " + ticket.getPriceRange());
             // Load image using Picasso
             Picasso.get().load(ticket.getImageUrl()).into(imageViewEvent);
         }
