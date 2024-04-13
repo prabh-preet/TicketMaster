@@ -12,8 +12,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.squareup.picasso.Picasso;
 
+/**
+ * This is the class generating the details of an event on the page
+ * by getting it from the first page
+ */
 public class EventDetailActivity extends AppCompatActivity {
 
+    /**
+     * This is the in-built create method which is necessary to start an application
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +56,7 @@ public class EventDetailActivity extends AppCompatActivity {
             textViewTime.setText(time);
             textViewPrice.setText(price);
             textViewTicketLimit.setText(ticketLimit);
+
             // Use Picasso to load the image into the ImageView
             Picasso.get().load(imageUrl).into(imageViewEvent);
         }

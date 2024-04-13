@@ -3,6 +3,7 @@ package com.example.ticketmaster;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,7 +26,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -36,13 +36,41 @@ import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
+/**
+ * This is my main class for the whole application from which all the content is appearing
+ * and everything like the display details comes here. I made some methods for displaying the details
+ * using JSON and some other in-built methods
+ */
 public class MainActivity extends AppCompatActivity {
 
+    /**
+     * This is my API key variable
+     */
     private final String API_KEY = 	"9kahPnTfLwlJrXPQdAD5g06FN55x08jB";
+
+    /**
+     *  This is the URL for the ticketMaster
+     */
     private final String BASE_URL = "https://app.ticketmaster.com/discovery/v2/events.json";
+
+    /**
+     * This is the variable to add city name
+     */
     private EditText editTextCity;
+
+    /**
+     * This is the variable to add radius
+     */
     private EditText editTextRadius;
+
+    /**
+     * This is the object for RecycleView
+     */
     private RecyclerView recyclerViewEvents;
+
+    /**
+     * This is the object for my another class
+     */
     private TicketAdapter ticketAdapter;
 
     @Override
@@ -85,6 +113,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * This is the method for searching the events
+     * and it displays a toast if we are not entering the proper information
+     * @param view used for making view
+     */
     public void searchEvents(View view) {
         String city = editTextCity.getText().toString();
         String radius = editTextRadius.getText().toString();
@@ -97,6 +130,11 @@ public class MainActivity extends AppCompatActivity {
         fetchEvents(city, Integer.parseInt(radius));
     }
 
+    /**
+     * This is the method to get the events according to the city name and radius
+     * @param city it stores the city name
+     * @param radius it stores the radius
+     */
     private void fetchEvents(String city, int radius) {
         // Build URL with query parameters
         String url = BASE_URL + "?apikey=" + API_KEY + "&city=" + city + "&radius=" + radius;
@@ -128,6 +166,13 @@ public class MainActivity extends AppCompatActivity {
         Volley.newRequestQueue(this).add(jsonObjectRequest);
     }
 
+    /**
+     * This method makes a list of the events which are getting by using JSON
+     * from a web server by their city name and radius
+     * @param response object for JSON
+     * @return List of events
+     * @throws JSONException when there is anything happening because of any exception
+     */
     private List<Ticket> parseEvents(JSONObject response) throws JSONException {
         List<Ticket> tickets = new ArrayList<>();
 
@@ -189,6 +234,11 @@ public class MainActivity extends AppCompatActivity {
         return tickets;
     }
 
+    /**
+     * This is the in-built method for menu items
+     * @param menu takes the menu details
+     * @return true if it is true or false when it is false
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
@@ -196,6 +246,11 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * This is also the in-built method for menu items
+     * @param item takes item from the menu
+     * @return true if it finds something otherwise false if it not provide
+     */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
